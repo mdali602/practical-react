@@ -3,15 +3,17 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { Header } from './components/Header';
-import { Body, Body2 } from './components/Body';
+// import { Body, Body2 } from './components/Body';
 import { Counter } from './components/Counter';
 import ImageSlider from './components/ImageSlider';
+import { MyForm } from './components/MyForm';
 // import Body from './components/Body';
 
 class App extends Component {
   state = {
-    visiable: true,
-    whichComponentToShow: "ImageSlider"
+    visible: true,
+    // whichComponentToShow: "ImageSlider"
+    whichComponentToShow: "MyForm"
   };
 
   /* add(a, b) {
@@ -19,7 +21,6 @@ class App extends Component {
   } */
 
   render() {
-    console.log(this.state.whichComponentToShow, 'whichComponentToShow');
     if(this.state.whichComponentToShow === "ImageSlider") {
       return (
         <div className="App">
@@ -32,9 +33,15 @@ class App extends Component {
     } else if(this.state.whichComponentToShow === "Counter") {
       return (
         <div className="App">
-          <Counter initialCount={ 0 } />
-          <button onClick={ () => this.setState({ whichComponentToShow: "Header" }) }>
+          {/* <div style={this.state.visible ? {} : { display: 'none' } }> */}
+          <div className={this.state.visible ? 'visible' : 'hidden' }>
+            <Counter initialCount={ 0 } />
+          </div>
+          <button onClick={ () => this.setState({ whichComponentToShow: "ImageSlider" }) }>
             Show Header
+          </button> <br />
+          <button onClick={ () => this.setState({ visible: !this.state.visible }) }>
+            {this.state.visible ? 'Hide' : 'Show' } It
           </button>
         </div>
       );
@@ -55,11 +62,17 @@ class App extends Component {
           />
         </div>
       );
+    } else if (this.state.whichComponentToShow === "MyForm") {
+      return (
+        <div className="App">
+          <MyForm />
+        </div>
+      );
     }
     return null;
     /* // const add = (a, b) => a + b;
-    const buttonText = this.state.visiable ? 'Hide #' : 'Show #';
-    const slider = this.state.visiable ? <ImageSlider /> : <Counter initialCount={ 0 } />;
+    const buttonText = this.state.visible ? 'Hide #' : 'Show #';
+    const slider = this.state.visible ? <ImageSlider /> : <Counter initialCount={ 0 } />;
     return (
       <div className="App">
         <Header
@@ -79,7 +92,7 @@ class App extends Component {
         <br />
         <br />
         { slider }
-        <button onClick={ () => { this.setState( { visiable: !this.state.visiable } )} }>
+        <button onClick={ () => { this.setState( { visible: !this.state.visible } )} }>
           { buttonText }
         </button>
         <Body text="I'm cool." text2="I'm cool2." myFunc={(a, b) => a + b } />

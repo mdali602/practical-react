@@ -10,6 +10,15 @@ export class Counter extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    console.log("unmounting...");
+  }
+
+
+  componentDidMount() {
+    console.log("mounting...");
+  }
+
   increament = () => {
     // this.state.count += 1;
     this.setState({
@@ -25,7 +34,6 @@ export class Counter extends React.Component {
   };
 
   render() {
-    console.log("render function called")
     return (
       <div>
         <div> Count: { this.state.count } </div>
