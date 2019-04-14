@@ -28,7 +28,7 @@ export class Counter extends React.Component {
     console.log("render function called")
     return (
       <div>
-        <div> Counte: { this.state.count } </div>
+        <div> Count: { this.state.count } </div>
         <button onClick={ this.increament }> increament </button>
         <button onClick={ this.decreament }> decreament </button>
       </div>
