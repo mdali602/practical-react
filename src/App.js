@@ -7,13 +7,15 @@ import { Header } from './components/Header';
 import { Counter } from './components/Counter';
 import ImageSlider from './components/ImageSlider';
 import { MyForm } from './components/MyForm';
+import { ValidationForm } from './components/ValidationForm';
 // import Body from './components/Body';
 
 class App extends Component {
   state = {
     visible: true,
     // whichComponentToShow: "ImageSlider"
-    whichComponentToShow: "MyForm"
+    // whichComponentToShow: "MyForm"
+    whichComponentToShow: "ValidationForm"
   };
 
   /* add(a, b) {
@@ -66,6 +68,12 @@ class App extends Component {
       return (
         <div className="App">
           <MyForm />
+        </div>
+      );
+    } else if (this.state.whichComponentToShow === "ValidationForm") {
+      return (
+        <div className="App">
+          <ValidationForm />
         </div>
       );
     }
