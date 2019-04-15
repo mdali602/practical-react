@@ -10,34 +10,16 @@ export class MyForm extends React.Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.value);
+    console.log(event.target.name, event.target.value);
+    const isCheckbox = event.target.type === "checkbox" ? true : false;
     this.setState({
-      name: event.target.value
+      // name: event.target.value
+      [event.target.name]: isCheckbox ? event.target.checked : event.target.value 
     });
   }
 
-  handleChangeFavoritePet = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      favoritePet: event.target.value
-    });
-  }
-
-  handleCheck = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      rememberMe: event.target.checked
-    });
-  }
-
-  handleSelect = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      title: event.target.value
-    });
-  }
-
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    // event.preventDefault();
     console.log(this.state);
     /* this.setState({
       title: event.target.value
@@ -46,25 +28,40 @@ export class MyForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <input type="text" value={ this.state.name } onChange={ this.handleChange } />
-        <textarea value={ this.state.favoritePet } onChange={ this.handleChangeFavoritePet } ></textarea>
+      <form onClick={ this.handleSubmit }>
+        <input
+          type="text"
+          name="name"
+          value={ this.state.name }
+          onChange={ this.handleChange }
+        />{/*  onChange={ event => { this.handleChange(event, 'name', false) } } */}
+        
+        <textarea
+          name="favoritePet"
+          value={ this.state.favoritePet }
+          onChange={ this.handleChange } >
+        </textarea>
+        
         <input
           type="checkbox"
-          value={ this.state.rememberMe }
+          name="rememberMe"
           checked={ this.state.rememberMe }
-          onChange={ this.handleCheck }
+          onChange={ this.handleChange }
         />
+
         <div>
-          <select value={ this.state.title } onChange={ this.handleSelect }>
+          <select
+            name="title"
+            value={ this.state.title }
+            onChange={ this.handleChange }>
             <option>Mr.</option>
             <option>Miss.</option>
             <option>Ms.</option>
             <option>Mrs.</option>
           </select>
         </div>
-        <button onClick={ this.handleSubmit }> Submit </button>
-      </div>
+        <button type="Submit"> Submit </button>
+      </form>
     );
   }
 }
