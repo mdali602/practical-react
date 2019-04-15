@@ -11,7 +11,7 @@ export class MyForm extends React.Component {
 
   handleChange = (event) => {
     console.log(event.target.name, event.target.value);
-    const isCheckbox = event.target.type === "checkbox" ? true : false;
+    const isCheckbox = event.target.type === "checkbox";
     this.setState({
       // name: event.target.value
       [event.target.name]: isCheckbox ? event.target.checked : event.target.value 
@@ -19,11 +19,8 @@ export class MyForm extends React.Component {
   }
 
   handleSubmit = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     console.log(this.state);
-    /* this.setState({
-      title: event.target.value
-    }); */
   }
 
   render() {
