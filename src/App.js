@@ -9,18 +9,20 @@ import ImageSlider from './components/ImageSlider';
 import { MyForm } from './components/MyForm';
 import { ValidationForm } from './components/ValidationForm';
 import { FetchRandomUser } from './components/FetchRandomUser';
+import { TodoList } from './components/todo/TodoList';
 // import Body from './components/Body';
 
 class App extends Component {
   state = {
     visible: true,
     count: 0,
-    whichComponentToShow: "Counter"
+    // whichComponentToShow: "Counter"
     // whichComponentToShow: "ImageSlider"
     // whichComponentToShow: "Header"
     // whichComponentToShow: "MyForm"
     // whichComponentToShow: "ValidationForm"
     // whichComponentToShow: "FetchRandomUser"
+    whichComponentToShow: "TodoList"
   };
 
   /* add(a, b) {
@@ -101,6 +103,12 @@ class App extends Component {
       return (
         <div className="App">
           <FetchRandomUser />
+        </div>
+      );
+    } else if (this.state.whichComponentToShow === "TodoList") {
+      return (
+        <div className="App">
+          <TodoList />
         </div>
       );
     }
