@@ -5,8 +5,8 @@ npm install
 
 then run: npm start
 
-hosted at: http://feeble-partner.surge.sh/
-hosted at Netlify: https://suspicious-varahamihira-dd8489.netlify.com/
+hosted at (surge): http://feeble-partner.surge.sh/
+hosted at (Netlify): https://suspicious-varahamihira-dd8489.netlify.com/
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
