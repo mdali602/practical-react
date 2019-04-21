@@ -1,3 +1,13 @@
+git clone: url
+
+then run: 
+npm install
+
+then run: npm start
+
+hosted at: http://feeble-partner.surge.sh/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
