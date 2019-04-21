@@ -35,3 +35,7 @@
 .hidden {
   display: none;
 }
+.width-128{
+  width: 128px;
+  min-width: 128px;
+}

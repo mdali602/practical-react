@@ -4,7 +4,7 @@ export class Counter extends React.Component {
 
   constructor(props) {
     super(props);
-
+    console.log(this.props, "props");
     this.state = {
       count: this.props.initialCount
     };
@@ -24,6 +24,7 @@ export class Counter extends React.Component {
     this.setState({
       count: this.state.count + 1
     });
+    // this.props.initialCount += 1;
   };
 
   decreament = () => {
@@ -37,7 +38,7 @@ export class Counter extends React.Component {
     return (
       <div>
         <div> Count: { this.state.count } </div>
-        <button onClick={ this.increament }> increament </button>
+        <button onClick={ this.increament }> increament #{ this.props.initialCount } </button>
         <button onClick={ this.decreament }> decreament </button>
       </div>
     );

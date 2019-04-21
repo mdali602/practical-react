@@ -8,14 +8,18 @@ import { Counter } from './components/Counter';
 import ImageSlider from './components/ImageSlider';
 import { MyForm } from './components/MyForm';
 import { ValidationForm } from './components/ValidationForm';
+import { FetchRandomUser } from './components/FetchRandomUser';
 // import Body from './components/Body';
 
 class App extends Component {
   state = {
     visible: true,
+    // whichComponentToShow: "Counter"
     // whichComponentToShow: "ImageSlider"
+    // whichComponentToShow: "Header"
     // whichComponentToShow: "MyForm"
-    whichComponentToShow: "ValidationForm"
+    // whichComponentToShow: "ValidationForm"
+    whichComponentToShow: "FetchRandomUser"
   };
 
   /* add(a, b) {
@@ -36,14 +40,14 @@ class App extends Component {
       return (
         <div className="App">
           {/* <div style={this.state.visible ? {} : { display: 'none' } }> */}
-          <div className={this.state.visible ? 'visible' : 'hidden' }>
+          <div className={ this.state.visible ? 'visible' : 'hidden' }>
             <Counter initialCount={ 0 } />
           </div>
           <button onClick={ () => this.setState({ whichComponentToShow: "ImageSlider" }) }>
             Show Header
           </button> <br />
           <button onClick={ () => this.setState({ visible: !this.state.visible }) }>
-            {this.state.visible ? 'Hide' : 'Show' } It
+            { this.state.visible ? 'Hide' : 'Show' } It!
           </button>
         </div>
       );
@@ -74,6 +78,12 @@ class App extends Component {
       return (
         <div className="App">
           <ValidationForm />
+        </div>
+      );
+    } else if (this.state.whichComponentToShow === "FetchRandomUser") {
+      return (
+        <div className="App">
+          <FetchRandomUser />
         </div>
       );
     }
