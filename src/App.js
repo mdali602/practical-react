@@ -14,17 +14,33 @@ import { FetchRandomUser } from './components/FetchRandomUser';
 class App extends Component {
   state = {
     visible: true,
-    // whichComponentToShow: "Counter"
+    count: 0,
+    whichComponentToShow: "Counter"
     // whichComponentToShow: "ImageSlider"
     // whichComponentToShow: "Header"
     // whichComponentToShow: "MyForm"
     // whichComponentToShow: "ValidationForm"
-    whichComponentToShow: "FetchRandomUser"
+    // whichComponentToShow: "FetchRandomUser"
   };
 
   /* add(a, b) {
     return a + b;
   } */
+
+  increament = () => {
+    // this.state.count += 1;
+    this.setState({
+      count: this.state.count + 1
+    });
+    // this.props.initialCount += 1;
+  };
+
+  decreament = () => {
+    // this.state.count += 1;
+    this.setState({
+      count: this.state.count - 1
+    });
+  };
 
   render() {
     if(this.state.whichComponentToShow === "ImageSlider") {
@@ -41,7 +57,8 @@ class App extends Component {
         <div className="App">
           {/* <div style={this.state.visible ? {} : { display: 'none' } }> */}
           <div className={ this.state.visible ? 'visible' : 'hidden' }>
-            <Counter initialCount={ 0 } />
+            <Counter count={this.state.count} increament={this.increament} decreament={this.decreament} />
+            <Counter count={this.state.count} increament={this.increament} decreament={this.decreament} />
           </div>
           <button onClick={ () => this.setState({ whichComponentToShow: "ImageSlider" }) }>
             Show Header
