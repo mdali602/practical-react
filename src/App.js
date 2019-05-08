@@ -21,8 +21,8 @@ class App extends Component {
     // whichComponentToShow: "Header"
     // whichComponentToShow: "MyForm"
     // whichComponentToShow: "ValidationForm"
-    // whichComponentToShow: "FetchRandomUser"
-    whichComponentToShow: "TodoList"
+    whichComponentToShow: "FetchRandomUser"
+    // whichComponentToShow: "TodoList"
   };
 
   /* add(a, b) {

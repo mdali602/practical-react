@@ -1,4 +1,6 @@
 import React from 'react';
+import * as http from '../utils/http';
+import * as myService from '../utils/http';
 
 export class FetchRandomUser extends React.Component {
 
@@ -12,17 +14,23 @@ export class FetchRandomUser extends React.Component {
     this.setState({ loading: true });
     const url = "https://api.randomuser.me/?results=5";
     var response = await fetch(url);
-    var data = await response.json()
+    var data = await response.json();
+
     this.setState({ loading: false });
-    console.log("data: ", data);
     if (data.results && data.results.length > 0) {
       this.setState({
         person: data.results['0'],
         users: data.results.slice(1)
       });
     }
-    console.log("person: ", this.state.person);
-    console.log("users: ", this.state.users);
+
+    var httpResponse = await http.get('?results=5');
+    var httpData = await httpResponse.json();
+		console.log("TCL: FetchRandomUser -> getData -> httpData", httpData)
+    
+    var apiResponse = await myService.get('?result=10');
+    var apiData = await apiResponse.json();
+		console.log("TCL: FetchRandomUser -> getData -> apiData", apiData)
   }
   /* getUsers = async () => {
     this.setState({ loading: true });
